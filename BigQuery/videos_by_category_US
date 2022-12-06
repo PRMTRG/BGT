@@ -1,0 +1,5 @@
+select `1.categories`.name as category_name, count(distinct videos.video_id) as videos_in_category, count(distinct videos.video_id) * 100 / (select count(distinct video_id) from `1.US`) as percentage
+from `1.US` as videos
+inner join `1.categories` on videos.categoryId=`1.categories`.id
+group by videos.categoryId ,`1.categories`.name
+order by videos_in_category desc

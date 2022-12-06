@@ -1,0 +1,3 @@
+select extract(dayofweek from timestamp(videos.publishedAt)) as day_of_week_of_video_upload, avg(view_count) as average_view_count
+from `1.US` as videos
+group by extract(dayofweek from timestamp(videos.publishedAt))

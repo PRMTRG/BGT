@@ -1,0 +1,3 @@
+select count(distinct video_id) as number_of_videos, avg(view_count) as average_views, tags!="[None]" as has_tags
+from `1.US`
+group by has_tags

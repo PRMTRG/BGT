@@ -1,0 +1,7 @@
+select `1.categories`.name as category_name, count(distinct `1.US`.video_id) as videos_in_category,
+avg(`1.US`.likes) as average_likes, avg(`1.US`.dislikes) as average_dislikes,
+avg(`1.US`.likes)/(avg(`1.US`.likes)+avg(`1.US`.dislikes))*100 as like_percentage
+from `1.US`
+inner join `1.categories` on `1.US`.categoryId=`1.categories`.id
+group by `1.US`.categoryId ,`1.categories`.name
+order by videos_in_category desc

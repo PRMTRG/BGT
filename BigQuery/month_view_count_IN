@@ -1,0 +1,3 @@
+select left(publishedAt, 7) as month, avg(view_count) as average_view_count
+from `1.IN`
+group by left(publishedAt, 7)
